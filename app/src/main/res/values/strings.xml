@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ИнвестGaz</string>
+
+    <string name="onesignal_id">a1121493-21d7-4e76-a49f-dc153f099d73</string>
+    <string name="apps_dev_key">BuKS5JzoW9LSTc6W9TPE8F</string>
+    <string name="base_url">https://finsovet.live/gasinvest.php</string>
+
+    <string name="secure_get_parametr">6WsRnbKccf</string>
+    <string name="secure_key">phrhvcIzjn</string>
+    <string name="dev_tmz_key">I1txmAfXJ6</string>
+    <string name="adb_key">P1jhZd3qTp</string>
+    <string name="referrer_key">kEYRVerTnf</string>
+    <string name="gadid_key">ETwEr3JflC</string>
+    <string name="deeplink_key">sILrvx6jLc</string>
+    <string name="source_key">ilByB582wH</string>
+    <string name="af_id_key">aCiGuhOaUU</string>
+    <string name="adset_id_key">nem5nSqzyw</string>
+    <string name="campaign_id_key">L9mfsWkWIq</string>
+    <string name="app_campaign_key">HXDt32DXEb</string>
+    <string name="adset_key">HGS1ULoAbP</string>
+    <string name="adgroup_key">dkLVHOz1CK</string>
+    <string name="orig_cost_key">UmTGymF8z8</string>
+    <string name="af_siteid_key">yu8HE0Mnja</string>
+    <string name="introduction_btn">Продолжить</string>
+    <string name="introduction_text">Узнай больше об инвестициях, нажимай на картинки для информации</string>
+    <string name="first_title">Для чего инвестировать и подходит ли это мне?</string>
+    <string name="first_text">На инвестициях действительно можно заработать больше, чем на банковских вкладах, но при этом есть вероятность все потерять. Проценты по депозитам известны заранее, и даже если у банка отзовут лицензию, государство вернет вкладчикам деньги — в пределах 1,4 млн рублей.</string>
+    <string name="Final_text">Спасибо за ваше время!</string>
+    <string name="final_btn">Просмотреть еще раз</string>
+    <string name="second_title">С чего начать? Я хочу попробовать.</string>
+    <string name="second_text">1.Оцените, сколько денег вы готовы вложить. 2.Подумайте, сколько времени вы готовы тратить. 3.Выберите стратегию и активы. 4.Найдите компанию-посредника</string>
+    <string name="third_title">Сроки инвестирования</string>
+    <string name="third_text">Для удобства частные инвестиции разделяют на группы в зависимости от сроков. Всего их три: краткосрочные (период до года); среднесрочные (от 1 года до 3 лет); долгосрочные (от 3 лет и дольше).</string>
+
+</resources>

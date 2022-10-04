@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loadingFragment">
+
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.LoadingFragment"
+        android:label="LoadingFragment" >
+        <action
+            android:id="@+id/action_loadingFragment_to_webFragment"
+            app:destination="@id/webFragment" />
+        <action
+            android:id="@+id/action_loadingFragment_to_introductionFragment"
+            app:destination="@id/introductionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.WebFragment"
+        android:label="WebFragment" >
+        <action
+            android:id="@+id/action_webFragment_to_introductionFragment"
+            app:destination="@id/introductionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/introductionFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.IntroductionFragment"
+        android:label="IntroductionFragment" >
+        <action
+            android:id="@+id/action_introductionFragment_to_firstQFragment"
+            app:destination="@id/firstQFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finalFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.FinalFragment"
+        android:label="FinalFragment" >
+        <action
+            android:id="@+id/action_finalFragment_to_introductionFragment"
+            app:destination="@id/introductionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstQFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.FirstQFragment"
+        android:label="FirstQFragment" >
+        <action
+            android:id="@+id/action_firstQFragment_to_secondQFragment"
+            app:destination="@id/secondQFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondQFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.SecondQFragment"
+        android:label="SecondQFragment" >
+        <action
+            android:id="@+id/action_secondQFragment_to_thirdQFragment"
+            app:destination="@id/thirdQFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdQFragment"
+        android:name="manage.invest.pre.gaz.ui.fragments.ThirdQFragment"
+        android:label="ThirdQFragment" >
+        <action
+            android:id="@+id/action_thirdQFragment_to_finalFragment"
+            app:destination="@id/finalFragment" />
+    </fragment>
+</navigation>
