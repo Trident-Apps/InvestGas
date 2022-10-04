@@ -1,9 +1,11 @@
 package manage.invest.pre.gaz.ui.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import manage.invest.pre.gaz.R
@@ -12,6 +14,17 @@ import manage.invest.pre.gaz.databinding.IntroductionFragmentBinding
 class IntroductionFragment : Fragment() {
     private var _binding: IntroductionFragmentBinding? = null
     private val binding get() = _binding!!
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                }
+
+            })
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

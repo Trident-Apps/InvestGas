@@ -24,6 +24,4 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             OneSignal.setExternalUserId(gadId)
         }
     }
-
-    override fun onBackPressed() {}
 }

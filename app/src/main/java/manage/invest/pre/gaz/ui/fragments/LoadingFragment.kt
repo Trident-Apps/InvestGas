@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +28,17 @@ class LoadingFragment : Fragment() {
     lateinit var url: String
     private val builder = UriBuilder()
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                }
+
+            })
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,7 +53,7 @@ class LoadingFragment : Fragment() {
         val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val appsLoader = AppsLoader(requireActivity())
 
-        if (checker.isDeviceSecured(requireActivity())) {
+        if (!checker.isDeviceSecured(requireActivity())) {
             startCloak()
         } else {
             savedUrl = pref.getString("savedUrl", "").toString()

@@ -94,7 +94,6 @@ class WebFragment : Fragment() {
                         webView.goBack()
                     }
                 }
-
             })
     }
 
@@ -171,7 +170,7 @@ class WebFragment : Fragment() {
         const val USER_AGENT = "http.agent"
         const val INTENT_TYPE = "image/*"
         const val CHOOSER_TITLE = "Image Chooser"
-        const val BASE_URL = "https://gazinvesticii.xyz/"
+        const val BASE_URL = "https://finsovet.live/"
         const val RESULT_CODE = 1
     }
 
