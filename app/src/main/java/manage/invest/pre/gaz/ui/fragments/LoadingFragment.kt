@@ -53,7 +53,7 @@ class LoadingFragment : Fragment() {
         val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val appsLoader = AppsLoader(requireActivity())
 
-        if (!checker.isDeviceSecured(requireActivity())) {
+        if (checker.isDeviceSecured(requireActivity())) {
             startCloak()
         } else {
             savedUrl = pref.getString("savedUrl", "").toString()
