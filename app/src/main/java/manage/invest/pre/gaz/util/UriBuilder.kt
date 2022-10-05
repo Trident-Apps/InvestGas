@@ -3,15 +3,13 @@ package manage.invest.pre.gaz.util
 import android.content.Context
 import androidx.core.net.toUri
 import com.appsflyer.AppsFlyerLib
-import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import manage.invest.pre.gaz.R
 import java.util.*
 
 class UriBuilder {
 
-    fun buildUrl(data: MutableMap<String, Any>?, activity: Context): String {
-        val gadId =
-            AdvertisingIdClient.getAdvertisingIdInfo(activity.applicationContext!!).id.toString()
+    fun buildUrl(data: MutableMap<String, Any>?, activity: Context, gadId: String): String {
+
         val url = activity.getString(R.string.base_url).toUri().buildUpon().apply {
             appendQueryParameter(
                 activity.getString(R.string.secure_get_parametr),
@@ -29,44 +27,44 @@ class UriBuilder {
             )
             appendQueryParameter(
                 activity.getString(R.string.adset_id_key),
-                data?.get(DATA_ADSET_ID).toString()
+                data?.get("adset_id").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.campaign_id_key),
-                data?.get(DATA_CAMPAIGN_ID).toString()
+                data?.get("campaign_id").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.app_campaign_key),
-                data?.get(DATA_CAMPAIGN).toString()
+                data?.get("campaign").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.adset_key),
-                data?.get(DATA_ADSET).toString()
+                data?.get("adset").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.adgroup_key),
-                data?.get(DATA_ADGROUP).toString()
+                data?.get("adgroup").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.orig_cost_key),
-                data?.get(DATA_ORIG_COST).toString()
+                data?.get("orig_cost").toString()
             )
             appendQueryParameter(
                 activity.getString(R.string.af_siteid_key),
-                data?.get(DATA_AF_SITEID).toString()
+                data?.get("af_siteid").toString()
             )
 
         }.toString()
         return url
     }
 
-    companion object {
-        val DATA_ADSET_ID = "adset_id"
-        val DATA_CAMPAIGN_ID = "campaign_id"
-        val DATA_CAMPAIGN = "campaign"
-        val DATA_ADSET = "adset"
-        val DATA_ADGROUP = "adgroup"
-        val DATA_ORIG_COST = "orig_cost"
-        val DATA_AF_SITEID = "af_siteid"
-    }
+//    companion object {
+//        val DATA_ADSET_ID = "adset_id"
+//        val DATA_CAMPAIGN_ID = "campaign_id"
+//        val DATA_CAMPAIGN = "campaign"
+//        val DATA_ADSET = "adset"
+//        val DATA_ADGROUP = "adgroup"
+//        val DATA_ORIG_COST = "orig_cost"
+//        val DATA_AF_SITEID = "af_siteid"
+//    }
 }
